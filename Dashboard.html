@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+        <th>Unique ID</th><th>Name</th><th>Age</th><th>Designation</th><th>Priority</th><th>Vaccine</th><th>OTP</th>
+        <tbody id="result"></tbody>
+    </table>
+</body>
+</html>
+<script >
+var data = JSON.parse(localStorage.getItem("userData")) || [];
+//console.log(data);
+
+function getData (data){
+    console.log(data);
+    var Unique_ID = data.age;
+    console.log(Unique_ID);
+    var html="";
+ 
+		html="<tr><td>"+Unique_ID+"</td><td>"+Name+"</td><td>"+Age+"</td></tr>"+"<tr><td>"+Designation+"</td><td>"+Priority+"</td><td>"+Vaccine+"</td></tr>"+"<tr><td>"+OTP+"</td></tr>";
+}
+getData(data);
+
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .main_div{
+              border: 1px solid black;
+              height: 400px;
+              width: 45%;
+
+        }
+        .inp{
+            height: 20px;
+            width: 60%;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <div class = "main_div">
+
+        <h2>Register</h2>
+        <form onsubmit="register();return false" action="#">
+           
+            <label> Unique ID:</label> <br/>
+            <input type="text" placeholder="Enter unique id " class = "inp" id = "unique"><br><br/>
+
+            <label>Name:</label><br/>
+            <input type="text" placeholder="Enter name" class = "inp" minlength="4" id = "name"><br><br/>
+
+            <label>Age:</label> <br/>
+             <input type="number" placeholder="Enter age" class = "inp" min="18" max="40" id = "age"><br><br/>
+
+             <label> Designation:</label>
+            Employee<input type = "radio" name="designation" value="employee" id = "designation">
+                         Student<input type = "radio" name="designation" value="student" id = "designation"><br><br/>
+
+             <label> Priority:</label>           
+              <select  id="priority">
+                            <option value="p0">P0</option>
+                            <option value="p1">P1</option>
+                            <option value="p2">P2</option>
+                            <option value="p3">P3</option>
+                        </select><br><br/>
+
+            <label> Vaccine:</label>                    
+             <select name="" id="vaccine">
+                <option value="Covishield">Covishield</option>
+                <option value="Covaxin">Covaxin</option>
+                <option value="Sputnik">Sputnik</option>
+            </select><br><br/>
+
+            <button type = "submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+
+    var userDetail = JSON.parse(localStorage.getItem("userData")) || [];
+function register(){
+
+    var detail = {
+
+         unique : document.getElementById("unique").value,
+
+        name : document.getElementById("name").value,
+        age : document.getElementById("unique").value,
+        designation : document.getElementById("designation").value,
+
+        priority : document.getElementById('priority').options[priority.selectedIndex].value,
+
+       // selNum : select.options[select.selectedIndex].value,
+
+       vaccine : document.getElementById('vaccine').options[vaccine.selectedIndex].value,
+        //selDes1 : select1.options[select1.selectedIndex].value,
+        
+    }
+    
+    userDetail.push(detail);
+    console.log(userDetail);
+    localStorage.setItem("userData", JSON.stringify(userDetail));
+
+   
+    
+}
+</script>
